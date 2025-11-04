@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard Password Strength Checker</title>
+    
+    <!-- Favicon (Emoji Shield) -->
+    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" rel="icon">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- --- Navigation --- -->
+    <nav>
+        <a href="#" class="nav-logo">🛡️ CyberGuard</a>
+        <div class="nav-links">
+            <a href="#checker-app">Analyse</a>
+            <a href="#why-it-matters">Why?</a>
+            <a href="#how-it-works">How?</a>
+        </div>
+    </nav>
+
+    <!-- --- Hero Section --- -->
+    <header class="hero">
+        <div class="container">
+            <h1>Fortify Your Digital Life</h1>
+            <p>In a world of constant threats, a strong password is your first line of defense. Use our advanced tool to analyze your password strength in real-time and generate uncrackable new ones.</p>
+            <a href="#checker-app" class="btn" style="margin-top: 1rem;">Analyze Password</a>
+        </div>
+    </header>
+
+    <!-- --- Main Content --- -->
+    <main class="container">
+
+        <!-- === The Password Checker App === -->
+        <section id="checker-app" class="glass-card">
+            <h2>Analyze Your Password</h2>
+            
+            <!-- Input -->
+            <div class="input-group">
+                <input type="password" id="password-input" placeholder="Enter your password...">
+                <i class="fas fa-copy input-icon" id="copy-icon" title="Copy Password"></i>
+                <i class="fas fa-eye input-icon" id="toggle-visibility" title="Show/Hide Password"></i>
+            </div>
+
+            <!-- Strength Meter -->
+            <div class="strength-meter">
+                <div id="strength-bar"></div>
+                <span id="strength-text">Enter a password</span>
+            </div>
+
+            <!-- Score -->
+            <div class="score-display">
+                Strength Score: <span id="score-value">0</span> / 100
+            </div>
+
+            <!-- Suggestions -->
+            <ul class="suggestions-list" id="suggestions-list">
+                <li class="suggestion-item" id="length-check">
+                    <i class="fas fa-times-circle"></i>
+                    <span>At least 8 characters</span>
+                </li>
+                <li class="suggestion-item" id="upper-check">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Contains uppercase (A-Z)</span>
+                </li>
+                <li class="suggestion-item" id="lower-check">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Contains lowercase (a-z)</span>
+                </li>
+                <li class="suggestion-item" id="number-check">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Contains numbers (0-9)</span>
+                </li>
+                <li class="suggestion-item" id="symbol-check">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Contains symbols (!@#)</span>
+                </li>
+                <li class="suggestion-item" id="length-check-12">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Recommended 12+ characters</span>
+                </li>
+            </ul>
+
+            <!-- === Password Generator === -->
+            <div class="generator">
+                <div class="generator-header">
+                    <h3>Generate Strong Password</h3>
+                    <button class="btn-secondary" id="generate-btn">
+                        <i class="fas fa-sync-alt"></i> Generate
+                    </button>
+                </div>
+
+                <!-- Length Slider -->
+                <div class="length-slider option">
+                    <div class="header">
+                        <label for="length-slider">Password Length</label>
+                        <span id="length-value">16</span>
+                    </div>
+                    <input type="range" id="length-slider" min="8" max="32" value="16">
+                </div>
+                
+                <!-- Toggles -->
+                <div class="generator-options">
+                    <div class="option">
+                        <label for="upper-toggle">Uppercase (A-Z)</label>
+                        <label class="switch">
+                            <input type="checkbox" id="upper-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="option">
+                        <label for="lower-toggle">Lowercase (a-z)</label>
+                        <label class="switch">
+                            <input type="checkbox" id="lower-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="option">
+                        <label for="number-toggle">Numbers (0-9)</label>
+                        <label class="switch">
+                            <input type="checkbox" id="number-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="option">
+                        <label for="symbol-toggle">Symbols (!@#)</label>
+                        <label class="switch">
+                            <input type="checkbox" id="symbol-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- === Why It Matters Section === -->
+        <section id="why-it-matters" class="glass-card">
+            <h2>Why Strong Passwords Matter</h2>
+            <p>In 2024, a weak password is an open invitation. Brute-force attacks, where attackers use automated software to guess millions of passwords per second, are more common than ever. A password like "123456" can be cracked instantly.</p>
+            <p>A strong, complex password increases the "entropy," or randomness, making it exponentially harder for these tools to guess. A 12-character password with letters, numbers, and symbols could take centuries to crack, while an 8-character password with only letters could take just hours.</p>
+            <p><strong>This tool helps you visualize that strength and build a better digital fortress.</strong></p>
+        </section>
+
+        <!-- === How It Works Section === -->
+        <section id="how-it-works" class="glass-card">
+            <h2>How Our Scoring Works</h2>
+            <p>We don't just check boxes. Our algorithm calculates a "strength score" based on multiple factors to give you a realistic assessment:</p>
+            <ul>
+                <li><strong>Length (Weight: 40%):</strong> The most critical factor. We award significant points for every character, especially after 8 and 12.</li>
+                <li><strong>Character Variety (Weight: 60%):</strong> We check for four distinct types of characters:
+                    <ul>
+                        <li>Uppercase Letters (A-Z)</li>
+                        <li>Lowercase Letters (a-z)</li>
+                        <li>Numbers (0-9)</li>
+                        <li>Special Symbols (!@#$%^&*)</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>The score is a combination of these elements, capped at 100. A "Very Strong" password (90+) has high length and all four character types, making it highly resistant to modern attacks.</p>
+        </section>
+
+    </main>
+
+    <!-- --- Footer --- -->
+    <footer>
+        <div class="social-links">
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2025 CyberGuard. All rights reserved. Secure your digital frontier.</p>
+    </footer>
+
+    <!-- --- Custom Alert Modal --- -->
+    <div id="alert-modal">Password Copied!</div>
+
+
+    <!-- --- JavaScript --- -->
+    <script src="script.js"></script>
+</body>
+</html>
